@@ -1,0 +1,11 @@
+.form {
+    --rhf-primary: #0066ff;
+    --rhf-error: #d32f2f;
+    --rhf-border: #ccc;
+    --rhf-radius: 4px;
+
+    &,
+    * {
+        box-sizing: border-box;
+    }
+}

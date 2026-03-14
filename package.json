@@ -1,0 +1,48 @@
+{
+    "name": "react-html-forms",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "./dist/index.umd.js",
+    "module": "./dist/index.es.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.es.js",
+            "require": "./dist/index.umd.js"
+        },
+        "./dist/index.css": "./dist/index.css"
+    },
+    "files": ["dist"],
+    "keywords": ["react", "form", "forms", "html", "html-form", "form-validation", "validation", "typescript"],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mschwandt98/react-html-forms"
+    },
+    "description": "The simplicity of native HTML for your React apps, without sacrificing first-class typing, validation, and modern user experience.",
+    "author": "Marian Schwandt <marian.schwandt@gmail.com>",
+    "license": "MIT",
+    "peerDependencies": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0"
+    },
+    "scripts": {
+        "start": "vite",
+        "build": "tsc -b && vite build",
+        "preview": "vite preview",
+        "lint": "npx biome lint",
+        "format": "npx biome format --write"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.4.7",
+        "@types/node": "^24.10.1",
+        "@types/react": "^19.2.7",
+        "@types/react-dom": "^19.2.3",
+        "@vitejs/plugin-react": "^5.1.1",
+        "babel-plugin-react-compiler": "^1.0.0",
+        "globals": "^16.5.0",
+        "typescript": "~5.9.3",
+        "vite": "^7.3.1",
+        "vite-plugin-dts": "^4.5.4"
+    }
+}

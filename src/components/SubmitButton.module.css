@@ -1,0 +1,19 @@
+.btn {
+    background-color: var(--rhf-primary);
+    border: none;
+    border-radius: var(--rhf-radius);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.75em 1.5em;
+    transition: opacity 0.2s;
+
+    &:is(:hover, :focus-visible):not(:disabled) {
+        opacity: 0.9;
+    }
+
+    &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+}

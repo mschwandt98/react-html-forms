@@ -1,0 +1,36 @@
+.summary {
+    background-color: var(--rhf-error-bg);
+    border: 1px solid var(--rhf-error);
+    border-radius: var(--rhf-radius);
+    padding: 1em;
+}
+
+.title {
+    align-items: center;
+    color: var(--rhf-error);
+    display: flex;
+    font-weight: bold;
+    gap: 0.5em;
+    margin: 0 0 0.5em 0;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.errBtn {
+    background: none;
+    border: none;
+    color: var(--rhf-error);
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: 0.2em 0;
+    text-align: left;
+    text-decoration: underline;
+
+    &:is(:hover, :focus-visible) {
+        opacity: 0.8;
+    }
+}

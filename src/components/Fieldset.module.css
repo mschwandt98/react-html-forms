@@ -1,0 +1,29 @@
+.fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.legend {
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+
+    [id^="error"] {
+        display: none;
+    }
+}
+
+.err {
+    color: var(--rhf-error);
+    font-size: 0.8em;
+    margin-top: 0.25em;
+}
