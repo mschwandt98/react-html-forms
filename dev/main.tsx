@@ -44,11 +44,6 @@ function App() {
     return (
         <Form
             action={onSubmit}
-            initialValues={{
-                foo: 'bar',
-                bar: 'foo',
-                hobbies: ['sport']
-            }}
             validate={(values) => {
                 if (values.password !== values.passwordConfirm) {
                     return { passwordConfirm: 'Passwords not matching' };

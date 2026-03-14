@@ -11,7 +11,7 @@ export function useOnInvalid(name: string, onInvalid?: ReactEventHandler<T>) {
         e.preventDefault();
         onInvalid?.(e);
 
-        const target = e.currentTarget;
+        const target = e.currentTarget ?? e.target;
         const { validity, dataset } = target;
 
         let message = target.validationMessage;

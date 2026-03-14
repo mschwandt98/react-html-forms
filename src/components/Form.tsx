@@ -16,9 +16,9 @@ export type FormProps<T> = {
     validate?: (values: T) => ValidationErrors<T> | undefined;
 } & Omit<FormHTMLAttributes<HTMLFormElement>, 'action' | 'noValidate'>;
 export function Form<T extends Record<string, any>>({
+    initialValues = {},
     action,
     children,
-    initialValues,
     onReset,
     onSubmit,
     validate,
@@ -72,7 +72,7 @@ export function Form<T extends Record<string, any>>({
     };
 
     const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
-        const { newErrors, allValues } = validateForm(e.currentTarget);
+        const { newErrors, allValues } = validateForm(formRef.current ?? e.currentTarget ?? e.target);
 
         if (validate) {
             const formLevelErrors = validate(allValues);
@@ -119,7 +119,9 @@ export function Form<T extends Record<string, any>>({
         setErrors({});
 
         setTimeout(() => {
-            const firstInput = e.currentTarget.querySelector<HTMLElement>('input, select, textarea');
+            const firstInput = (formRef.current ?? e.currentTarget ?? e.target).querySelector<HTMLElement>(
+                'input, select, textarea'
+            );
             firstInput?.focus();
         }, 0);
     };
