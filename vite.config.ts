@@ -27,6 +27,7 @@ export default defineConfig({
             formats: ['es', 'umd'],
             fileName: (format) => `index.${format}.js`
         },
+        minify: 'terser',
         rollupOptions: {
             external: ['react', 'react-dom', 'react/jsx-runtime'],
             output: {
