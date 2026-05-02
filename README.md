@@ -2,7 +2,7 @@
 
 **Type-safe, native HTML forms for React 19.**
 
-Say goodbye to massive form libraries. react-html-forms brings the simplicity of native HTML back to your React apps without sacrificing first-class typing, validation, and modern UX.
+react-html-forms brings the simplicity of native HTML back to your React apps without sacrificing first-class typing, validation, and modern UX.
 
 
 ## ✨ Features
@@ -12,6 +12,12 @@ Say goodbye to massive form libraries. react-html-forms brings the simplicity of
 - ♿ Accessible by Default: Automatic handling of aria-invalid, aria-describedby, and label bindings.
 - 🛠️ Developer Experience: Full TypeScript support and an intuitive factory function for creating type-safe form components.
 - 📦 Zero Dependencies: No unnecessary packages in node_modules—only React as a peer dependency.
+
+
+## 🛠 Installation
+```bash
+npm install react-html-forms
+```
 
 
 ## 🚀 Quick Start
@@ -109,7 +115,6 @@ You can validate errors synchronously directly in the client (both globally on t
 
 
 ### 3. Global Error Handling (`_form`)
-Manchmal gehört ein Fehler nicht zu einem spezifischen Feld (z.B. "Login fehlgeschlagen"). Dafür nutzt du den speziellen `_form` Key.
 Sometimes an error isn't associated with a specific field (e.g., "Login failed"). In that case, use the special `_form` key.
 
 ```tsx
@@ -129,7 +134,7 @@ Sometimes an error isn't associated with a specific field (e.g., "Login failed")
 ```
 
 
-### 4. Die ErrorSummary (A11y)
+### 4. ErrorSummary (A11y)
 A central list of all errors at the top of the form.
 - Prominently displays the global `_form` error.
 - Provides clickable buttons for field errors that use `focus()` and `scrollIntoView()` to navigate directly to the problem.
@@ -141,27 +146,6 @@ A standard `<button type="reset">` not only resets the HTML fields, but also aut
 
 ### 6. Easy Component Library Integration
 Thanks to the `useFieldUtils` hooks, you can integrate any third-party library (such as Material UI or Headless UI):
-
-```tsx
-import { TextField } from '@mui/material';
-import { useForm } from 'react-html-forms';
-
-function CustomMuiInput({ name, label }: { name: keyof MyData; label: string }) {
-    const { error } = useFieldUtils(name);
-
-    return (
-        <TextField
-            name={name} // important for FormData!
-            label={label}
-            error={!!error}
-            helperText={error}
-            fullWidth
-        />
-    );
-}
-```
-
-Or use the built-in components as wrappers with a `children` render function for your own field component:
 
 ```tsx
 <Input
@@ -183,11 +167,32 @@ Or use the built-in components as wrappers with a `children` render function for
 </Input>
 ```
 
+Or use the built-in components as wrappers with a `children` render function for your own field component:
+
+```tsx
+import { TextField } from '@mui/material';
+import { useForm } from 'react-html-forms';
+
+function MyCustomInput({ name, label }: { name: keyof MyData; label: string }) {
+    const { error } = useFieldUtils(name);
+
+    return (
+        <TextField
+            name={name} // important for FormData!
+            label={label}
+            error={!!error}
+            helperText={error}
+            fullWidth
+        />
+    );
+}
+```
+
 
 ## 💬 Custom Validation Messages
 By default, the library uses the browser's validation messages. However, you can easily replace these with your own messages by adding data attributes to your components. This works seamlessly with native HTML5 validation attributes such as required, min, max, or pattern.
 
-Füge einfach das entsprechende Attribut hinzu, um die Nachricht für diesen Fehlertyp zu überschreiben:
+Simply add the appropriate attribute to override the message for this error type:
 | Attribute | Validation-Trigger |
 | --------- | ------------------ |
 | `data-required-message` | `required` |
@@ -274,12 +279,6 @@ export default function RegistrationForm() {
 | `useForm` | Hook for accessing the entire form state. |
 | `useFieldUtils` | Hook for a single form field. Encapsulates access to the global form context (`useForm`) so that a field component only needs to know its own name in order to: <ul><li>**Handle errors** (`error`, `setError`)</li><li>**Control validation** (`addValidator`, `removeValidator`)</li><li>**Retrieve the default value** (`initialValue`)</li></ul> |
 | `createFormComponents` | A library for creating type-safe form components. |
-
-
-## 🛠 Installation
-```bash
-npm install react-html-forms
-```
 
 
 ## 🗺️ Roadmap
